@@ -1,8 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+
 <h2>🌼 Today's Wisdom</h2>
 
-<p><b>Shloka:</b> {{ shloka.shloka }}</p>
-<p><b>Meaning:</b> {{ shloka.meaning }}</p>
-<p><b>Explanation:</b> {{ shloka.explanation }}</p>
+<div class="wisdom-card">
+    <p class="shloka">{{ shloka.shloka }}</p>
+    <p><strong>Meaning:</strong> {{ shloka.meaning }}</p>
+    <p>{{ shloka.explanation }}</p>
+</div>
 
-<a href="/dashboard">Back</a>
-<link rel="stylesheet" href="/static/style.css">
+{% endblock %}

@@ -1,20 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
 <h2>Chat with Krishna 🙏</h2>
 
-<form method="post">
-  <textarea name="message" rows="4" cols="50"
-    placeholder="Ask Krishna about your stress, fear, or confusion..."
-    required></textarea><br><br>
-  <button type="submit">Ask Krishna</button>
-</form>
+<div class="chat-box">
+    <form method="post">
+        <textarea name="message" placeholder="Ask Krishna about stress, fear, or confusion..." required></textarea>
+        <button type="submit">Ask Krishna</button>
+    </form>
 
-{% if response %}
-<hr>
-<p><b>Krishna:</b></p>
-<p>{{ response }}</p>
-{% endif %}
+    {% if response %}
+    <div class="response">
+        <strong>Krishna:</strong>
+        <p>{{ response }}</p>
+    </div>
+    {% endif %}
+</div>
 
-<br>
-<a href="/dashboard">Back to Dashboard</a> |
-<a href="/logout">Logout</a>
-<link rel="stylesheet" href="/static/style.css">
-
+{% endblock %}

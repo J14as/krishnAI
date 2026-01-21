@@ -99,6 +99,10 @@ def reflection():
 def dashboard():
     return render_template("dashboard.html")
 
+@app.route("/about")
+@login_required
+def about():
+    return render_template("about.html")
 
 with app.app_context():
     db.create_all()

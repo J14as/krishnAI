@@ -1,16 +1,32 @@
-<h2>📝 My Reflections</h2>
+{% extends "base.html" %}
+{% block content %}
 
-<form method="post">
-  <textarea name="content" required></textarea><br><br>
-  <button>Save Reflection</button>
-</form>
+<div class="reflection-page">
 
-<hr>
+  <h2>📝 My Reflections</h2>
+  <p class="reflection-subtext">
+    Write your thoughts and reflections after guidance from KrishnAI.
+  </p>
 
-{% for r in reflections %}
-<p>{{ r.content }}</p>
-<hr>
-{% endfor %}
+  <form method="post" class="reflection-form">
+    <textarea
+      name="content"
+      placeholder="Write your thoughts here..."
+      required></textarea>
 
-<a href="/dashboard">Back</a>
-<link rel="stylesheet" href="/static/style.css">
+    <button type="submit">Save Reflection</button>
+  </form>
+
+  <div class="reflection-list">
+    {% for r in reflections %}
+      <div class="reflection-card">
+        <p>{{ r.content }}</p>
+      </div>
+    {% else %}
+      <p class="no-reflection">No reflections yet. Start writing ✨</p>
+    {% endfor %}
+  </div>
+
+</div>
+
+{% endblock %}

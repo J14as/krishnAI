@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KrishnAI</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo-container">
+        <a href="/dashboard" style="display:flex; align-items:center; gap:12px; text-decoration:none;">
+            <img src="{{ url_for('static', filename='images/logo.jpeg') }}"
+                alt="KrishnAI Logo"
+                class="logo-img">
+            <span class="logo-text"></span>
+        </a>
+    </div>
+
+
+    <ul>
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/chat">Chat</a></li>
+        <li><a href="/daily-shloka">Daily Wisdom</a></li>
+        <li><a href="/reflection">Reflections</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/logout">Logout</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    {% block content %}{% endblock %}
+</div>
+
+<footer>
+    <p>© 2026 KrishnAI • Ancient Wisdom. Modern Guidance.</p>
+</footer>
+
+</body>
+</html>

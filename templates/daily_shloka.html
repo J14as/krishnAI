@@ -2,45 +2,31 @@
 {% block content %}
 
 <div class="shloka-page">
-
-    <!-- Header -->
     <div class="shloka-header">
         <div class="page-eyebrow">🕉 Bhagavad Gita</div>
         <h2>Today's Wisdom</h2>
     </div>
 
-    <!-- Shloka Card -->
     <div class="wisdom-card">
+        <div class="shloka-text">{{ shloka.shloka }}</div>
 
-        <!-- Shloka verse -->
-        <div class="shloka-text">
-            {{ shloka.shloka }}
-        </div>
-
-        <!-- Meaning -->
         <div class="shloka-section">
             <div class="shloka-label">Meaning</div>
             <p class="shloka-content">{{ shloka.meaning }}</p>
         </div>
-
-        <!-- Explanation -->
         <div class="shloka-section">
             <div class="shloka-label">Explanation</div>
             <p class="shloka-content">{{ shloka.explanation }}</p>
         </div>
-
-        <!-- Example -->
         <div class="shloka-section">
             <div class="shloka-label">Example</div>
             <p class="shloka-content">{{ shloka.example }}</p>
         </div>
-
     </div>
 
-    <div style="text-align:center; margin-top: 30px;">
+    <div style="text-align:center;margin-top:30px;">
         <a href="/chat" class="btn btn-primary">Chat with Krishna ✦</a>
     </div>
-
 </div>
 
 {% endblock %}

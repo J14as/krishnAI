@@ -2,42 +2,26 @@
 {% block content %}
 
 <div class="about-page">
-
     <div class="about-hero">
         <div class="about-text">
-
             <h2>About KrishnAI</h2>
-            <p>
-                KrishnAI is an AI-powered student guidance platform developed as an MCA minor project.
+            <p>KrishnAI is an AI-powered student guidance platform developed as an MCA minor project.
                 It helps students deal with academic stress, confusion, and lack of motivation by
-                providing thoughtful guidance through a Krishna-inspired AI chatbot.
-            </p>
+                providing thoughtful guidance through a Krishna-inspired AI chatbot.</p>
 
             <h3>Purpose of the System</h3>
-            <p>
-                The main objective of KrishnAI is to support students emotionally and academically
+            <p>The main objective of KrishnAI is to support students emotionally and academically
                 by offering guidance inspired by timeless philosophical wisdom, explained in a
-                simple and modern manner using Artificial Intelligence.
-            </p>
+                simple and modern manner using Artificial Intelligence.</p>
 
             <h3>Application Modules</h3>
             <ul>
-                <li>
-                    <strong>Dashboard:</strong>
-                    Central navigation hub — access all features after login.
-                </li>
-                <li>
-                    <strong>Chat with Krishna:</strong>
-                    Interact with the AI chatbot for guidance on stress, fear, confusion, and motivation.
-                </li>
-                <li>
-                    <strong>Daily Wisdom:</strong>
-                    A Bhagavad Gita shloka each day with its meaning and student-friendly explanation.
-                </li>
-                <li>
-                    <strong>Reflections:</strong>
-                    Write and store personal reflections to track your thoughts and inner growth.
-                </li>
+                <li><strong>Dashboard:</strong> Central navigation hub — access all features after login.</li>
+                <li><strong>Chat with Krishna:</strong> Interact with the AI chatbot for guidance on stress, fear, and
+                    motivation.</li>
+                <li><strong>Daily Wisdom:</strong> A Bhagavad Gita shloka each day with meaning and student-friendly
+                    explanation.</li>
+                <li><strong>Reflections:</strong> Write and store personal reflections to track your inner growth.</li>
             </ul>
 
             <h3>Technologies Used</h3>
@@ -50,14 +34,12 @@
             </ul>
 
             <p class="slogan"><em>✦ Ancient Wisdom. Modern Guidance. ✦</em></p>
-
         </div>
 
         <div class="about-image">
             <img src="{{ url_for('static', filename='images/krishna.jpg') }}" alt="Krishna inspired wisdom">
         </div>
     </div>
-
 </div>
 
 {% endblock %}

@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 
-<!-- Hero Section -->
 <div class="dashboard-hero">
     <div class="hero-content">
         <div class="hero-eyebrow">🕉 AI-Powered Spiritual Guide</div>
@@ -15,34 +14,29 @@
             <a href="/daily-shloka" class="btn btn-ghost">Daily Wisdom</a>
         </div>
     </div>
-
     <div class="hero-image">
         <img src="{{ url_for('static', filename='images/krishna.jpg') }}" alt="Lord Krishna">
     </div>
 </div>
 
-<!-- Feature Cards -->
 <div class="dash-cards">
     <a href="/chat" class="dash-card">
         <span class="dash-card-icon">💬</span>
         <div class="dash-card-title">Chat with Krishna</div>
-        <p class="dash-card-desc">Seek guidance on stress, fear, or confusion from the AI inspired by divine wisdom.</p>
+        <p class="dash-card-desc">Seek guidance on stress, fear, or confusion from AI inspired by divine wisdom.</p>
     </a>
-
     <a href="/daily-shloka" class="dash-card">
         <span class="dash-card-icon">📿</span>
         <div class="dash-card-title">Daily Wisdom</div>
         <p class="dash-card-desc">Receive a Bhagavad Gita shloka each day for motivation, clarity, and inner strength.
         </p>
     </a>
-
     <a href="/reflection" class="dash-card">
         <span class="dash-card-icon">✍️</span>
         <div class="dash-card-title">Reflections</div>
         <p class="dash-card-desc">Write personal reflections and track your thoughts, emotions, and spiritual growth.
         </p>
     </a>
-
     <a href="/about" class="dash-card">
         <span class="dash-card-icon">🌸</span>
         <div class="dash-card-title">About</div>

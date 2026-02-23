@@ -1,10 +1,49 @@
-<h2>Login</h2>
+{% extends "base.html" %}
+{% block content %}
 
-<form method="post">
-  <input name="username" placeholder="Username" required><br><br>
-  <input name="password" type="password" placeholder="Password" required><br><br>
-  <button>Login</button>
-</form>
+<div class="auth-page">
+  <div class="auth-card">
 
-<a href="/signup">Create new account</a>
-<link rel="stylesheet" href="/static/style.css">
+    <!-- Left Panel — Divine -->
+    <div class="auth-left">
+      <div class="brand-name">KrishnAI</div>
+      <div class="brand-tagline">Ancient Wisdom · Modern Guidance</div>
+
+      <blockquote class="auth-quote">
+        "You have the right to work, but never to the fruit of work."
+        <br><br>
+        — Bhagavad Gita, Chapter 2
+      </blockquote>
+
+      <p class="auth-sub">
+        Find clarity, calm, and courage with Krishna-inspired AI guidance crafted for students.
+      </p>
+    </div>
+
+    <!-- Right Panel — Form -->
+    <div class="auth-right">
+      <h2>Welcome Back 🙏</h2>
+      <p class="auth-subtitle">Sign in to continue your journey</p>
+
+      <form method="post">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" placeholder="Enter your username" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        </div>
+
+        <button type="submit" class="auth-submit-btn">Enter the Path →</button>
+      </form>
+
+      <p class="auth-footer-link">
+        New here? <a href="/signup">Create an account</a>
+      </p>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -3,30 +3,96 @@
 
 <div class="reflection-page">
 
-  <h2>📝 My Reflections</h2>
-  <p class="reflection-subtext">
-    Write your thoughts and reflections after guidance from KrishnAI.
-  </p>
+  <!-- Page Title -->
+  <div class="page-title-block">
+    <div class="page-eyebrow">✍️ Inner Journey</div>
+    <h2>My Reflections</h2>
+    <p class="page-subtitle">A personal space to record your thoughts, learnings, and inner growth.</p>
+  </div>
 
+  <!-- New Reflection Form -->
   <form method="post" class="reflection-form">
-    <textarea
-      name="content"
-      placeholder="Write your thoughts here..."
+    <textarea name="content" placeholder="Write your reflection here… What did you feel, learn, or discover today?"
       required></textarea>
 
-    <button type="submit">Save Reflection</button>
+    <div class="reflection-form-footer">
+      <button type="submit" class="btn btn-primary">Save Reflection ✦</button>
+    </div>
   </form>
 
+  <!-- Saved Reflections -->
   <div class="reflection-list">
     {% for r in reflections %}
-      <div class="reflection-card">
+
+    <div class="reflection-wrapper" id="reflection-{{ r.id }}">
+      <div class="reflection-meta">
+        <span class="reflection-badge">🦚 Reflection</span>
+        <div class="reflection-actions">
+          <!-- Edit toggle button -->
+          <button type="button" class="edit-btn" onclick="toggleEdit({{ r.id }})" id="edit-toggle-{{ r.id }}"
+            title="Edit reflection">
+            ✏️ Edit
+          </button>
+
+          <!-- Delete button -->
+          <form method="post" action="{{ url_for('delete_reflection', reflection_id=r.id) }}" style="display:inline;">
+            <button type="submit" class="delete-btn" onclick="return confirm('Delete this reflection?');">
+              🗑 Delete
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- View mode -->
+      <div class="reflection-card" id="view-{{ r.id }}">
         <p>{{ r.content }}</p>
       </div>
+
+      <!-- Edit mode (hidden by default) -->
+      <form method="post" action="{{ url_for('edit_reflection', reflection_id=r.id) }}" class="reflection-edit-form"
+        id="edit-{{ r.id }}" style="display:none;">
+        <textarea name="content" class="edit-textarea" required>{{ r.content }}</textarea>
+        <div class="edit-form-actions">
+          <button type="submit" class="btn btn-primary">Save Changes ✦</button>
+          <button type="button" class="btn btn-ghost" onclick="cancelEdit({{ r.id }})">Cancel</button>
+        </div>
+      </form>
+    </div>
+
     {% else %}
-      <p class="no-reflection">No reflections yet. Start writing ✨</p>
+    <p class="no-reflection">No reflections yet — begin your inner journey ✨</p>
     {% endfor %}
   </div>
 
 </div>
+
+<script>
+  function toggleEdit(id) {
+    const viewEl = document.getElementById('view-' + id);
+    const editEl = document.getElementById('edit-' + id);
+    const toggleBtn = document.getElementById('edit-toggle-' + id);
+
+    viewEl.style.display = 'none';
+    editEl.style.display = 'block';
+    toggleBtn.textContent = '✕ Cancel';
+    toggleBtn.onclick = () => cancelEdit(id);
+
+    // Focus textarea at end of content
+    const ta = editEl.querySelector('textarea');
+    ta.focus();
+    ta.setSelectionRange(ta.value.length, ta.value.length);
+  }
+
+  function cancelEdit(id) {
+    const viewEl = document.getElementById('view-' + id);
+    const editEl = document.getElementById('edit-' + id);
+    const toggleBtn = document.getElementById('edit-toggle-' + id);
+
+    viewEl.style.display = 'block';
+    editEl.style.display = 'none';
+    toggleBtn.textContent = '✏️ Edit';
+    toggleBtn.onclick = () => toggleEdit(id);
+  }
+</script>
 
 {% endblock %}

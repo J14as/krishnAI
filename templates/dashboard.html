@@ -1,19 +1,53 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="hero-card">
+<!-- Hero Section -->
+<div class="dashboard-hero">
     <div class="hero-content">
-        <h1>KrishnAI 🙏</h1>
-        <p class="tagline">Ancient Wisdom. Modern Guidance.</p>
-        <p>
-            A personal AI guide to help students find clarity,
-            confidence, and calm during challenging times.
+        <div class="hero-eyebrow">🕉 AI-Powered Spiritual Guide</div>
+        <h1>KrishnAI</h1>
+        <p class="hero-tagline">
+            A personal AI guide inspired by the timeless teachings of the Bhagavad Gita —
+            helping students find clarity, confidence, and calm during challenging times.
         </p>
+        <div class="hero-actions">
+            <a href="/chat" class="btn btn-primary">Chat with Krishna ✦</a>
+            <a href="/daily-shloka" class="btn btn-ghost">Daily Wisdom</a>
+        </div>
     </div>
 
     <div class="hero-image">
-        <img src="{{ url_for('static', filename='images/krishna.jpg') }}" alt="Krishna">
+        <img src="{{ url_for('static', filename='images/krishna.jpg') }}" alt="Lord Krishna">
     </div>
+</div>
+
+<!-- Feature Cards -->
+<div class="dash-cards">
+    <a href="/chat" class="dash-card">
+        <span class="dash-card-icon">💬</span>
+        <div class="dash-card-title">Chat with Krishna</div>
+        <p class="dash-card-desc">Seek guidance on stress, fear, or confusion from the AI inspired by divine wisdom.</p>
+    </a>
+
+    <a href="/daily-shloka" class="dash-card">
+        <span class="dash-card-icon">📿</span>
+        <div class="dash-card-title">Daily Wisdom</div>
+        <p class="dash-card-desc">Receive a Bhagavad Gita shloka each day for motivation, clarity, and inner strength.
+        </p>
+    </a>
+
+    <a href="/reflection" class="dash-card">
+        <span class="dash-card-icon">✍️</span>
+        <div class="dash-card-title">Reflections</div>
+        <p class="dash-card-desc">Write personal reflections and track your thoughts, emotions, and spiritual growth.
+        </p>
+    </a>
+
+    <a href="/about" class="dash-card">
+        <span class="dash-card-icon">🌸</span>
+        <div class="dash-card-title">About</div>
+        <p class="dash-card-desc">Learn about the KrishnAI project, its purpose, and the technologies that power it.</p>
+    </a>
 </div>
 
 {% endblock %}

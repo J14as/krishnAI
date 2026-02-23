@@ -1,69 +1,63 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="about-card">
-    <div class="about-text">
+<div class="about-page">
 
-        <h2>About KrishnAI</h2>
-        <p>
-        KrishnAI is an AI-powered student guidance platform developed as an MCA minor project.
-        It helps students deal with academic stress, confusion, and lack of motivation by
-        providing thoughtful guidance through a Krishna-inspired AI chatbot.
-        </p>
+    <div class="about-hero">
+        <div class="about-text">
 
-        <h3>Purpose of the System</h3>
-        <p>
-        The main objective of KrishnAI is to support students emotionally and academically
-        by offering guidance inspired by timeless philosophical wisdom, explained in a
-        simple and modern manner using Artificial Intelligence.
-        </p>
+            <h2>About KrishnAI</h2>
+            <p>
+                KrishnAI is an AI-powered student guidance platform developed as an MCA minor project.
+                It helps students deal with academic stress, confusion, and lack of motivation by
+                providing thoughtful guidance through a Krishna-inspired AI chatbot.
+            </p>
 
-        <h3>Application Modules</h3>
+            <h3>Purpose of the System</h3>
+            <p>
+                The main objective of KrishnAI is to support students emotionally and academically
+                by offering guidance inspired by timeless philosophical wisdom, explained in a
+                simple and modern manner using Artificial Intelligence.
+            </p>
 
-        <ul>
-            <li>
-                <strong>Dashboard:</strong>  
-                Acts as the central navigation hub where users can access all features
-                of the application after login.
-            </li>
+            <h3>Application Modules</h3>
+            <ul>
+                <li>
+                    <strong>Dashboard:</strong>
+                    Central navigation hub — access all features after login.
+                </li>
+                <li>
+                    <strong>Chat with Krishna:</strong>
+                    Interact with the AI chatbot for guidance on stress, fear, confusion, and motivation.
+                </li>
+                <li>
+                    <strong>Daily Wisdom:</strong>
+                    A Bhagavad Gita shloka each day with its meaning and student-friendly explanation.
+                </li>
+                <li>
+                    <strong>Reflections:</strong>
+                    Write and store personal reflections to track your thoughts and inner growth.
+                </li>
+            </ul>
 
-            <li>
-                <strong>Chat with Krishna:</strong>  
-                Allows students to interact with the AI chatbot to seek guidance related
-                to stress, fear, confusion, motivation, and academic challenges.
-            </li>
+            <h3>Technologies Used</h3>
+            <ul>
+                <li>Python &amp; Flask</li>
+                <li>Groq AI (LLaMA 3.1)</li>
+                <li>SQLite Database</li>
+                <li>Flask-Login for Authentication</li>
+                <li>HTML &amp; CSS (Cosmic Design System)</li>
+            </ul>
 
-            <li>
-                <strong>Daily Wisdom:</strong>  
-                Displays a Bhagavad Gita shloka each day along with its meaning and a
-                student-friendly explanation to provide daily motivation and clarity.
-            </li>
+            <p class="slogan"><em>✦ Ancient Wisdom. Modern Guidance. ✦</em></p>
 
-            <li>
-                <strong>Reflections:</strong>  
-                Enables students to write and store personal reflections, helping them
-                track thoughts, emotions, and personal growth over time.
-            </li>
-        </ul>
+        </div>
 
-        <h3>Technologies Used</h3>
-        <ul>
-            <li>Python & Flask</li>
-            <li>Groq AI (LLaMA 3.1)</li>
-            <li>SQLite Database</li>
-            <li>Flask-Login for Authentication</li>
-            <li>HTML & CSS</li>
-        </ul>
-
-        <h3>Project Slogan</h3>
-        <p class="slogan"><em>Ancient Wisdom. Modern Guidance.</em></p>
-
+        <div class="about-image">
+            <img src="{{ url_for('static', filename='images/krishna.jpg') }}" alt="Krishna inspired wisdom">
+        </div>
     </div>
 
-    <div class="about-image">
-        <img src="{{ url_for('static', filename='images/krishna.jpg') }}"
-             alt="Krishna inspired wisdom">
-    </div>
 </div>
 
 {% endblock %}

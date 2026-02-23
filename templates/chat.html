@@ -1,20 +1,74 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2>Chat with Krishna 🙏</h2>
+<div class="chat-page">
+  <div class="chat-page-title">✦ Sacred Dialogue</div>
 
-<div class="chat-box">
-    <form method="post">
-        <textarea name="message" placeholder="Ask Krishna about stress, fear, or confusion..." required></textarea>
-        <button type="submit">Ask Krishna</button>
+  <div class="chat-wrapper">
+    <!-- Header -->
+    <header class="chat-header">
+      <div>
+        <h2>Chat with Krishna</h2>
+        <p class="muted">Ask gently — receive calm, scripture-rooted guidance.</p>
+      </div>
+      <div class="chat-actions">
+        <a href="/daily-shloka" class="btn btn-ghost">📿 Daily Shloka</a>
+      </div>
+    </header>
+
+    <!-- Conversation Tabs -->
+    <div class="conversations-bar">
+      <div class="tabs">
+        {% for conv in conversations %}
+        <a class="tab {% if conv.id == selected_conv %}active{% endif %}"
+          href="{{ url_for('chat') }}?conv_id={{ conv.id }}">
+          {{ conv.title or 'Chat' }}
+        </a>
+        {% endfor %}
+      </div>
+
+      <form method="post" action="{{ url_for('new_conversation') }}" class="new-conv-form">
+        <input name="title" placeholder="New chat name…" />
+        <button class="btn btn-ghost">+ New</button>
+      </form>
+    </div>
+
+    <!-- Messages -->
+    <div class="chat-window" id="chat-window">
+      <div class="messages">
+        {% for c in chats %}
+
+        <!-- User message -->
+        <div class="message user">
+          <div class="bubble">
+            <div class="meta">You</div>
+            <div class="text">{{ c.user_message }}</div>
+          </div>
+        </div>
+
+        <!-- Krishna response -->
+        <div class="message krishna">
+          <div class="bubble">
+            <div class="meta">🦚 Krishna</div>
+            <div class="text">{{ c.ai_response }}</div>
+          </div>
+        </div>
+
+        {% else %}
+        <p class="muted" style="text-align:center; padding: 40px 0;">
+          🌸 No conversation yet — start by asking a question below.
+        </p>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Input -->
+    <form method="post" class="chat-input" onsubmit="setTimeout(() => scrollChatToBottom(), 120);">
+      <textarea name="message" placeholder="Ask Krishna about stress, fear, or confusion…" required></textarea>
+      <button type="submit" class="btn btn-primary">Send ✦</button>
     </form>
 
-    {% if response %}
-    <div class="response">
-        <strong>Krishna:</strong>
-        <p>{{ response }}</p>
-    </div>
-    {% endif %}
+  </div>
 </div>
 
 {% endblock %}

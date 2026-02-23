@@ -1,2 +1,11 @@
-echo .env >> .gitignore
-echo instance/database.db >> .gitignore
+.env
+venv/
+instance/database.db
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.DS_Store
+*.xlsx
+*.pdf
+*.pptx

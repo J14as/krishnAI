@@ -37,7 +37,9 @@ def load_user(user_id):
 
 @app.route("/")
 def home():
-    return "KrishnAI is running 🙏"
+    if current_user.is_authenticated:
+        return redirect(url_for("dashboard"))
+    return redirect(url_for("login"))
 
 @app.route("/signup", methods=["GET", "POST"])
 def signup():

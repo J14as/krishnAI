@@ -1,3 +1,5 @@
+import os
+from dotenv import load_dotenv
 from flask import Flask, render_template, redirect, url_for, request
 from flask_login import LoginManager, login_user, logout_user, login_required
 from flask_login import current_user
@@ -6,12 +8,21 @@ from services.shloka_service import get_daily_shloka
 from models.chat import Chat
 from models.conversation import Conversation
 from models.reflection import Reflection
-from models.user import db, User    
+from models.user import db, User
+
+load_dotenv()
 
 
 app = Flask(__name__)
-app.config["SECRET_KEY"] = "krishnai_secret"
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///database.db"
+app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY", "krishnai_dev_secret")
+
+# Use PostgreSQL on production (Render sets DATABASE_URL automatically)
+# Falls back to SQLite for local development
+database_url = os.environ.get("DATABASE_URL", "sqlite:///database.db")
+# Render gives postgres:// URLs but SQLAlchemy needs postgresql://
+if database_url.startswith("postgres://"):
+    database_url = database_url.replace("postgres://", "postgresql://", 1)
+app.config["SQLALCHEMY_DATABASE_URI"] = database_url
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 db.init_app(app)

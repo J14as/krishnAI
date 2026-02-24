@@ -3,8 +3,10 @@ from dotenv import load_dotenv
 from flask import Flask, render_template, redirect, url_for, request
 from flask_login import LoginManager, login_user, logout_user, login_required
 from flask_login import current_user
+from flask_mail import Mail
 from services.groq_service import get_krishna_response
 from services.shloka_service import get_daily_shloka
+from services.mail_service import mail, send_welcome_email
 from models.chat import Chat
 from models.conversation import Conversation
 from models.reflection import Reflection
@@ -25,7 +27,16 @@ if database_url.startswith("postgres://"):
 app.config["SQLALCHEMY_DATABASE_URI"] = database_url
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
+# Flask-Mail configuration (Gmail SMTP)
+app.config["MAIL_SERVER"] = os.environ.get("MAIL_SERVER", "smtp.gmail.com")
+app.config["MAIL_PORT"] = int(os.environ.get("MAIL_PORT", 587))
+app.config["MAIL_USE_TLS"] = True
+app.config["MAIL_USERNAME"] = os.environ.get("MAIL_USERNAME", "")
+app.config["MAIL_PASSWORD"] = os.environ.get("MAIL_PASSWORD", "")
+app.config["MAIL_DEFAULT_SENDER"] = os.environ.get("MAIL_DEFAULT_SENDER", "noreply@krishnai.com")
+
 db.init_app(app)
+mail.init_app(app)
 
 login_manager = LoginManager()
 login_manager.login_view = "login"
@@ -51,6 +62,8 @@ def signup():
         user.set_password(request.form["password"])
         db.session.add(user)
         db.session.commit()
+        # Send welcome email (failure won't break signup)
+        send_welcome_email(app, user.username, user.email)
         return redirect(url_for("login"))
     return render_template("signup.html")
 

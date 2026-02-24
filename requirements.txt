@@ -6,3 +6,4 @@ groq
 python-dotenv
 gunicorn
 psycopg2-binary
+flask-mail

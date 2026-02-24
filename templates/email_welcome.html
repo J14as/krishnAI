@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to KrishnAI 🕉</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #0c0818;
+            font-family: 'Inter', Arial, sans-serif;
+            color: #f0e8d8;
+            padding: 40px 20px;
+        }
+
+        .email-wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+            background: linear-gradient(160deg, #18122a, #0c0818);
+            border-radius: 24px;
+            border: 1px solid rgba(245, 200, 66, 0.2);
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(245, 200, 66, 0.06);
+        }
+
+        /* ── Header ── */
+        .header {
+            background: linear-gradient(135deg, rgba(245, 200, 66, 0.12), rgba(255, 140, 0, 0.08), rgba(232, 115, 154, 0.08));
+            padding: 48px 40px 40px;
+            text-align: center;
+            border-bottom: 1px solid rgba(245, 200, 66, 0.15);
+            position: relative;
+        }
+
+        .om-symbol {
+            font-size: 56px;
+            display: block;
+            margin-bottom: 16px;
+            filter: drop-shadow(0 0 20px rgba(245, 200, 66, 0.5));
+        }
+
+        .brand {
+            font-family: 'Cinzel', Georgia, serif;
+            font-size: 36px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffe18a, #f5c842, #ff8c00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 0.08em;
+            line-height: 1.1;
+        }
+
+        .tagline {
+            font-size: 13px;
+            color: #9c7a5a;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-top: 8px;
+        }
+
+        /* ── Body ── */
+        .body {
+            padding: 44px 48px;
+        }
+
+        .greeting {
+            font-family: 'Cinzel', Georgia, serif;
+            font-size: 22px;
+            color: #ffe18a;
+            margin-bottom: 18px;
+        }
+
+        .lead {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #c8b898;
+            margin-bottom: 28px;
+        }
+
+        /* ── Verse card ── */
+        .verse-card {
+            background: rgba(245, 200, 66, 0.06);
+            border: 1px solid rgba(245, 200, 66, 0.18);
+            border-radius: 16px;
+            padding: 28px 30px;
+            margin-bottom: 32px;
+            position: relative;
+        }
+
+        .verse-card::before {
+            content: '"';
+            position: absolute;
+            top: 12px;
+            left: 20px;
+            font-size: 64px;
+            color: rgba(245, 200, 66, 0.12);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .shloka {
+            font-family: 'Cinzel', Georgia, serif;
+            font-size: 15px;
+            color: #f5c842;
+            letter-spacing: 0.04em;
+            margin-bottom: 12px;
+            padding-left: 8px;
+        }
+
+        .verse-meaning {
+            font-size: 14px;
+            color: #b8a898;
+            line-height: 1.7;
+            padding-left: 8px;
+            border-left: 3px solid rgba(245, 200, 66, 0.3);
+        }
+
+        .verse-source {
+            font-size: 12px;
+            color: #7a6e68;
+            margin-top: 10px;
+            padding-left: 8px;
+            letter-spacing: 0.06em;
+        }
+
+        /* ── Feature grid ── */
+        .features-title {
+            font-family: 'Cinzel', Georgia, serif;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #ff8c00;
+            margin-bottom: 16px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 36px;
+        }
+
+        .feature {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 200, 80, 0.1);
+            border-radius: 12px;
+            padding: 18px 16px;
+        }
+
+        .feature-icon {
+            font-size: 24px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .feature-name {
+            font-size: 13px;
+            font-weight: 600;
+            color: #f5c842;
+            margin-bottom: 4px;
+        }
+
+        .feature-desc {
+            font-size: 12px;
+            color: #7a6e68;
+            line-height: 1.5;
+        }
+
+        /* ── CTA ── */
+        .cta-wrap {
+            text-align: center;
+            margin-bottom: 36px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #f5c842, #ff8c00);
+            color: #1a0a00;
+            font-family: 'Cinzel', Georgia, serif;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-decoration: none;
+            padding: 16px 40px;
+            border-radius: 50px;
+            box-shadow: 0 8px 30px rgba(245, 200, 66, 0.35);
+        }
+
+        /* ── Footer ── */
+        .footer {
+            background: rgba(7, 4, 15, 0.6);
+            border-top: 1px solid rgba(245, 200, 66, 0.1);
+            padding: 28px 40px;
+            text-align: center;
+        }
+
+        .footer p {
+            font-size: 12px;
+            color: #4a3e38;
+            line-height: 1.7;
+        }
+
+        .footer a {
+            color: #b8a080;
+            text-decoration: none;
+        }
+
+        @media (max-width: 480px) {
+            .body {
+                padding: 32px 24px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="email-wrapper">
+
+        <!-- Header -->
+        <div class="header">
+            <span class="om-symbol">🕉</span>
+            <div class="brand">KrishnAI</div>
+            <div class="tagline">Ancient Wisdom · Modern Guidance</div>
+        </div>
+
+        <!-- Body -->
+        <div class="body">
+            <div class="greeting">Namaste, {{ username }} 🙏</div>
+
+            <p class="lead">
+                You have taken the first step on a sacred journey. KrishnAI is your personal space
+                for seeking wisdom, finding calm, and reflecting inward — guided by the timeless
+                teachings of the Bhagavad Gita.
+            </p>
+
+            <!-- Verse -->
+            <div class="verse-card">
+                <div class="shloka">कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।</div>
+                <div class="verse-meaning">
+                    "You have the right to perform your duties, but never to the fruits of your actions.
+                    Let right action be your motive, not the fruit that comes from it."
+                </div>
+                <div class="verse-source">— Bhagavad Gita, Chapter 2, Verse 47</div>
+            </div>
+
+            <!-- Features -->
+            <div class="features-title">What awaits you</div>
+            <div class="features">
+                <div class="feature">
+                    <span class="feature-icon">🦚</span>
+                    <div class="feature-name">Chat with Krishna</div>
+                    <div class="feature-desc">Ask anything — receive Gita-rooted guidance tailored to your situation
+                    </div>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">📿</span>
+                    <div class="feature-name">Daily Wisdom</div>
+                    <div class="feature-desc">A fresh Bhagavad Gita shloka every day with real-life examples</div>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">✍️</span>
+                    <div class="feature-name">Reflections</div>
+                    <div class="feature-desc">Your private journal to record growth, lessons, and inner discoveries
+                    </div>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">☀️</span>
+                    <div class="feature-name">Light &amp; Dark Themes</div>
+                    <div class="feature-desc">A beautiful cosmic interface that adapts to your mood</div>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="cta-wrap">
+                <a href="{{ app_url }}" class="cta-btn">Begin Your Journey ✦</a>
+            </div>
+
+            <p style="font-size:14px;color:#7a6e68;text-align:center;line-height:1.7;">
+                "Even a little practice of this discipline (yoga of action)<br>
+                will save you from the greatest fear." — Gita 2.40
+            </p>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>
+                You are receiving this because you created a KrishnAI account.<br>
+                © 2026 KrishnAI &nbsp;•&nbsp; Ancient Wisdom. Modern Guidance. 🕉<br>
+                <a href="{{ app_url }}">Visit KrishnAI</a>
+            </p>
+        </div>
+
+    </div>
+</body>
+
+</html>

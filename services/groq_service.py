@@ -8,14 +8,12 @@ load_dotenv()
 
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
-def get_krishna_response(messages):
-    """
-    Send a list of message dicts to the chat completion API.
-    `messages` should already include the system prompt as the first item.
-    Example: [{"role":"system","content":...}, {"role":"user","content":...}, ...]
-    """
+def get_krishna_response(user_message):
     response = client.chat.completions.create(
        model="llama-3.1-8b-instant",
-        messages=messages
+        messages=[
+            {"role": "system", "content": KRISHNA_PROMPT},
+            {"role": "user", "content": user_message}
+        ]
     )
     return response.choices[0].message.content
